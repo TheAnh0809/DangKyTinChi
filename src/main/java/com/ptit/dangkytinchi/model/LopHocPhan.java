@@ -3,6 +3,7 @@ package com.ptit.dangkytinchi.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -28,4 +29,7 @@ public class LopHocPhan {
     @ManyToOne
     @JoinColumn(name = "mamonhockihoc", nullable = false)
     private MonHocKiHoc monHocKiHoc;
+
+    @OneToMany(mappedBy = "lopHocPhan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    Set<LichHoc> dsLichHoc;
 }
