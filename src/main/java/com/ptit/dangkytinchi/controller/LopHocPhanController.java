@@ -3,8 +3,7 @@ package com.ptit.dangkytinchi.controller;
 
 import com.ptit.dangkytinchi.DTO.MonHocDTO;
 import com.ptit.dangkytinchi.DTO.SinhVienDTO;
-import com.ptit.dangkytinchi.common.ResponeAPI;
-import com.ptit.dangkytinchi.model.MonHoc;
+import com.ptit.dangkytinchi.exception.ResponeAPI;
 import com.ptit.dangkytinchi.repository.LopHocPhanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
