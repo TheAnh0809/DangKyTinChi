@@ -1,5 +1,7 @@
 package com.ptit.dangkytinchi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,5 +31,6 @@ public class SinhVienKhoa {
 
     @ManyToOne
     @JoinColumn(name = "masinhvien", nullable = false)
+    @JsonBackReference
     private SinhVien sinhVien;
 }
