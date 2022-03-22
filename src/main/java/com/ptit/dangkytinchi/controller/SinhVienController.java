@@ -1,10 +1,10 @@
 package com.ptit.dangkytinchi.controller;
 
-import com.ptit.dangkytinchi.DTO.DangNhapDTO;
+import com.ptit.dangkytinchi.DTO.SinhVienDTO;
+import com.ptit.dangkytinchi.common.ResponeAPI;
 import com.ptit.dangkytinchi.model.SinhVien;
 import com.ptit.dangkytinchi.repository.SinhVienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,12 +24,40 @@ public class SinhVienController {
     public List<SinhVien> danhSachTaiKhoan() {
         return svRepo.findAll();
     }
+
     @PostMapping("/dangnhap")
-    public boolean dangNhap(@RequestBody DangNhapDTO dangNhapDTO){
-        System.out.println(dangNhapDTO.getTaiKhoan());
-        SinhVien sv = svRepo.findOneByTaiKhoanAndMatKhau(dangNhapDTO.getTaiKhoan(), dangNhapDTO.getMatKhau());
-        System.out.println(sv.getTaiKhoan());
-        if(sv == null) return false;
-        else  return  true;
+    public ResponeAPI dangNhap(@RequestBody SinhVienDTO sinhVienDTO) throws Exception {
+        ResponeAPI res = new ResponeAPI();
+        SinhVien sv = svRepo.findOneByTaiKhoanAndMatKhau(sinhVienDTO.getTaiKhoan(), sinhVienDTO.getMatKhau());
+        if (sv == null) {
+            res.setError("Sai tài khoản, mật khẩu.Vui lòng nhập lại!");
+        } else {
+            SinhVienDTO svDTO = new SinhVienDTO();
+            svDTO.setMaSinhVien(sv.getMaSinhVien());
+            svDTO.setTenSinhVien(sv.getTenSinhVien());
+            svDTO.setTaiKhoan(sv.getTaiKhoan());
+            svDTO.setMatKhau(sv.getMatKhau());
+            res.setData(svDTO);
+        }
+        return res;
     }
+
+    @PostMapping("/doimatkhau")
+    public ResponeAPI doiMatKhau(@RequestBody SinhVienDTO sinhVienDTO) throws Exception {
+        ResponeAPI res = new ResponeAPI();
+        SinhVien sv = svRepo.findOneByTaiKhoanAndMatKhau(sinhVienDTO.getTaiKhoan(), sinhVienDTO.getMatKhau());
+        if (sv == null) {
+            res.setError("Sai mật khẩu cũ.Vui lòng nhập lại!");
+        } else {
+            SinhVien svMoi = new SinhVien();
+            svMoi.setMaSinhVien(sv.getMaSinhVien());
+            svMoi.setTenSinhVien(sv.getTenSinhVien());
+            svMoi.setTaiKhoan(sv.getTaiKhoan());
+            svMoi.setMatKhau(sinhVienDTO.getMatKhauMoi());
+            svRepo.save(svMoi);
+            res.setData("ok");
+        }
+        return res;
+    }
+
 }
