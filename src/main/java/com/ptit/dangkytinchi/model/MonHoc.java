@@ -22,7 +22,7 @@ public class MonHoc {
     private int soTc;
 
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="mabomon", nullable = false)
     private BoMon boMon;
 

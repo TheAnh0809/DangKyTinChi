@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping(path = "/bomon", produces = "application/json")
 @CrossOrigin(origins = "*")
 public class BoMonController {
+    @Autowired
     private BoMonRepository boMonRepository;
 
     @Autowired
@@ -24,15 +25,4 @@ public class BoMonController {
         return boMonRepository.findAll();
     }
 
-
-    public List<BoMon> danhSachBoMon(String maKhoa){
-        ArrayList<BoMon> list = (ArrayList<BoMon>) boMonRepository.findAll();
-        ArrayList<BoMon> listrepo = null;
-        list.forEach(boMon -> {
-            if(boMon.getKhoa().getMaKhoa().equals(maKhoa)){
-                listrepo.add(boMon);
-            }
-        });
-        return  listrepo;
-    }
 }

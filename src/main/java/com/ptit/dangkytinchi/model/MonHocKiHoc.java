@@ -1,6 +1,8 @@
 package com.ptit.dangkytinchi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -19,6 +21,7 @@ public class MonHocKiHoc {
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "mamonhoc", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MonHoc monHoc;
 
     @JsonManagedReference
