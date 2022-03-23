@@ -1,5 +1,7 @@
 package com.ptit.dangkytinchi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -20,10 +22,12 @@ public class BoMon {
     @Column(name="mota")
     private String moTa;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "boMon", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     Set<MonHoc> dsMonHoc;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "makhoa", nullable = false)
     private Khoa khoa;
