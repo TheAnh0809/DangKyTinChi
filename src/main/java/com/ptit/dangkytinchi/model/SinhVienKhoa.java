@@ -1,12 +1,19 @@
 package com.ptit.dangkytinchi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Entity
+import static org.hibernate.annotations.FetchMode.SELECT;
 @Data
+@Entity
 @Table(name = "tbl_sinh_vien_khoa", schema = "dangkytinchi")
 public class SinhVienKhoa {
 
@@ -20,14 +27,18 @@ public class SinhVienKhoa {
     @Column(name = "danghoc")
     private boolean dangHoc;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="makhoa", nullable = false)
     private Khoa khoa;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "sinhVienKhoa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Set<DangKyHoc> dsDangKyHoc;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "masinhvien", nullable = false)
     private SinhVien sinhVien;
+
 }

@@ -28,9 +28,6 @@ public class KiHoc {
     @JoinColumn(name = "mahocki", nullable = false)
     private HocKi hocKi;
 
-    @OneToMany(mappedBy = "kipHoc", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    Set<LichHoc> dsLichHoc;
-
     @OneToMany(mappedBy = "kiHoc", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Set<MonHocKiHoc> dsMonHocKiHoc;
 }
