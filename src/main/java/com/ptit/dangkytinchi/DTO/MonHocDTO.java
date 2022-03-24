@@ -11,7 +11,6 @@ public class MonHocDTO {
     private String maMonHoc;
     private String tenMonHoc;
     private int soTc;
-<<<<<<< HEAD
     private String maBoMon;
 
     public MonHocDTO(String maMonHoc, String tenMonHoc, int soTc, String maBoMon) {
@@ -20,8 +19,6 @@ public class MonHocDTO {
         this.soTc = soTc;
         this.maBoMon = maBoMon;
     }
-=======
     private BoMonDTO boMon;
     ArrayList<MonHocKiHocDTO> dsMonHocKiHoc;
->>>>>>> f312af3180882b8cda7f2259d80fdc588a176a47
 }
