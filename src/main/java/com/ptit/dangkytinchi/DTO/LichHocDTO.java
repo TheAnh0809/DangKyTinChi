@@ -1,6 +1,5 @@
 package com.ptit.dangkytinchi.DTO;
 
-import com.ptit.dangkytinchi.controller.NgayHocDTO;
 import com.ptit.dangkytinchi.model.*;
 import lombok.Data;
 
