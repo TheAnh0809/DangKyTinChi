@@ -21,10 +21,10 @@ public class LichHoc {
     @Column(name="giangvien")
     private String giangvien;
 
-    //@JsonManagedReference
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "malophocphan", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private LopHocPhan lopHocPhan;
 
     @JsonManagedReference

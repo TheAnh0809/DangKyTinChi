@@ -14,8 +14,8 @@ import java.util.Set;
 public class MonHocKiHocDTO {
 
     private String maMocHocKiHoc;
-    private MonHoc monHoc;
-    private KiHoc kiHoc;
-    Set<LopHocPhan> dsLopHocPhan;
+    private MonHocDTO monHoc;
+    private KiHocDTO kiHoc;
+    Set<LopHocPhanDTO> dsLopHocPhan;
 }
 

@@ -11,6 +11,6 @@ public class MonHocDTO {
     private String maMonHoc;
     private String tenMonHoc;
     private int soTc;
-    private BoMon boMon;
-    ArrayList<MonHocKiHoc> dsMonHocKiHoc;
+    private BoMonDTO boMon;
+    ArrayList<MonHocKiHocDTO> dsMonHocKiHoc;
 }

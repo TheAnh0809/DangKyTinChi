@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,13 +30,13 @@ public class LopHocPhan {
     @Column(name="mota")
     private String moTa;
 
-    //@JsonManagedReference
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "mamonhockihoc", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MonHocKiHoc monHocKiHoc;
 
     @JsonBackReference
     @OneToMany(mappedBy = "lopHocPhan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    Set<LichHoc> dsLichHoc;
+    private List<LichHoc> dsLichHoc;
 }

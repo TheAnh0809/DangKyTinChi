@@ -17,10 +17,10 @@ public class MonHocKiHoc {
     @Column(name = "mamonhockihoc")
     private String maMocHocKiHoc;
 
-    //@JsonManagedReference
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "mamonhoc", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MonHoc monHoc;
 
     @JsonManagedReference
