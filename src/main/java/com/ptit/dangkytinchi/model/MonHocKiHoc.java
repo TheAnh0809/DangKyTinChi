@@ -21,7 +21,7 @@ public class MonHocKiHoc {
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "mamonhoc", nullable = false)
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MonHoc monHoc;
 
     @JsonManagedReference

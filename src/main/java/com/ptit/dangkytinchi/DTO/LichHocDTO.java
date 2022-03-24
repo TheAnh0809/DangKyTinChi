@@ -1,13 +1,8 @@
 package com.ptit.dangkytinchi.DTO;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.ptit.dangkytinchi.model.*;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Data
 public class LichHocDTO {
@@ -19,4 +14,16 @@ public class LichHocDTO {
     private TuanHoc tuanHoc;
     private NgayHoc ngayHoc;
     private KipHoc kipHoc;
+
+    public LichHocDTO(String maLichHoc, String tenLichHoc, String giangvien, LopHocPhan lopHocPhan,
+                      PhongHoc phongHoc, TuanHoc tuanHoc, NgayHoc ngayHoc, KipHoc kipHoc) {
+        this.maLichHoc = maLichHoc;
+        this.tenLichHoc = tenLichHoc;
+        this.giangvien = giangvien;
+        this.lopHocPhan = lopHocPhan;
+        this.phongHoc = phongHoc;
+        this.tuanHoc = tuanHoc;
+        this.ngayHoc = ngayHoc;
+        this.kipHoc = kipHoc;
+    }
 }
