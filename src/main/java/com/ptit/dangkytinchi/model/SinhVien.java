@@ -1,8 +1,14 @@
 package com.ptit.dangkytinchi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+=======
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> master
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,6 +35,7 @@ public class SinhVien {
 
     @JsonBackReference
     @OneToMany(mappedBy = "sinhVien", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    Set<SinhVienKhoa> dsSinhVienKhoa;
+    @JsonBackReference
+    List<SinhVienKhoa> dsSinhVienKhoa;
 
 }

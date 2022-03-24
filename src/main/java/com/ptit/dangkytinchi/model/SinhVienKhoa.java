@@ -1,7 +1,11 @@
 package com.ptit.dangkytinchi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+=======
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+>>>>>>> master
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -37,6 +41,7 @@ public class SinhVienKhoa {
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "masinhvien", nullable = false)
+    @JsonBackReference
     private SinhVien sinhVien;
 
 }

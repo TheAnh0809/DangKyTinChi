@@ -1,5 +1,6 @@
 package com.ptit.dangkytinchi.repository;
 
+<<<<<<< HEAD
 import com.ptit.dangkytinchi.model.BoMon;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -20,4 +21,7 @@ public interface BoMonRepository extends JpaRepository<BoMon, String> {
         });
         return  listrepo;
     }
+=======
+public interface BoMonRepository {
+>>>>>>> master
 }

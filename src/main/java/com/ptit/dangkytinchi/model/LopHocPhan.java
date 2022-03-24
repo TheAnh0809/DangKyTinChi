@@ -1,8 +1,11 @@
 package com.ptit.dangkytinchi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+=======
+>>>>>>> master
 import lombok.Data;
 
 import javax.persistence.*;
@@ -36,7 +39,13 @@ public class LopHocPhan {
     //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private MonHocKiHoc monHocKiHoc;
 
+<<<<<<< HEAD
     @JsonBackReference
     @OneToMany(mappedBy = "lopHocPhan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<LichHoc> dsLichHoc;
+=======
+    @OneToMany(mappedBy = "lopHocPhan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonBackReference
+    List<LichHoc> dsLichHoc;
+>>>>>>> master
 }

@@ -1,7 +1,11 @@
 package com.ptit.dangkytinchi.controller;
 
 import com.ptit.dangkytinchi.DTO.SinhVienDTO;
+<<<<<<< HEAD
 import com.ptit.dangkytinchi.exception.ResponeAPI;
+=======
+import com.ptit.dangkytinchi.common.ResponeAPI;
+>>>>>>> master
 import com.ptit.dangkytinchi.model.SinhVien;
 import com.ptit.dangkytinchi.repository.SinhVienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
