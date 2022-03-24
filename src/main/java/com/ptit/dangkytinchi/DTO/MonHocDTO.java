@@ -13,4 +13,17 @@ public class MonHocDTO {
     private int soTc;
     private BoMonDTO boMon;
     ArrayList<MonHocKiHocDTO> dsMonHocKiHoc;
+
+
+
+    public MonHocDTO(String maMonHoc, String tenMonHoc, int soTc, String maBoMon) {
+        this.maMonHoc = maMonHoc;
+        this.tenMonHoc = tenMonHoc;
+        this.soTc = soTc;
+        this.maBoMon = maBoMon;
+    }
+
+
+
+
 }
